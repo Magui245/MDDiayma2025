@@ -87,37 +87,60 @@ Avant l'affichage des produits sur la page d'accueil, les éléments suivants so
 - **Classe :** ProductController
 - **Méthode :** Index()
 
-### 3. OrderController
-- **Namespace :** P2FixAnAppDotNetCode.Controllers
-- **Classe :** OrderController
-- **Méthode :** [à préciser]
+### 3. ProductService.GetAllProducts()
+- **Namespace :** P2FixAnAppDotNetCode.Models.Services
+- **Classe :** ProductService
+- **Méthode :** GetAllProducts()
 
-### 4. CartController
-- **Namespace :** P2FixAnAppDotNetCode.Controllers
-- **Classe :** CartController
-- **Méthode :** [à préciser]
-
+### 4. ProductRepository
+- **Namespace :** P2FixAnAppDotNetCode.Models.Repositories
+- **Classe :** ProductRepository
+- **Méthode :** GetAllProducts()
 ### 5. Startup
 - **Namespace :** P2FixAnAppDotNetCode
 - **Classe :** Startup
-- **Méthode :** Startup()
+- **Méthode :** Startup(IConfiguration configuration)
+- 
+### 6. CartController
+- **Namespace :** `P2FixAnAppDotNetCode.Controllers`
+- **Classe :** `CartController`
+- **Méthode :** `Index()
 
+### 9. Modes de débogage : Quand les utiliser ?
 
-## 9. Modes de débogage utilisés
+#### **F10 - Pas à pas principal**
+**Utilisable :**
+- On veut exécuter une ligne sans entrer dans les méthodes
+- On connaît déjà le fonctionnement de la méthode appelée
+- On veut avancer rapidement dans le code
 
-- **Pas à pas principal (F10)** : Exécuter la ligne actuelle sans entrer dans les fonctions
-- **Pas à pas détaillé (F11)** : Entrée dans les méthodes
-- **Pas à pas sortant (Shift + F11)** : Retour à la méthode appelante
+**Exemples dans notre projet :**
+- `Startup` : Pas besoin d'entrer dans la configuration
+- `CartSummaryViewComponent.Invoke()` : Simple retour de vue
+- `CartController.Index()` : Retour direct de la vue
 
-## 10. Points de vérification du débogage
+#### **F11 - Pas à pas détaillé**
+**Utilisable :**
+- On veut comprendre le fonctionnement interne d'une méthode
+- On cherche un bug dans une fonction spécifique
+- On veut voir le flux complet d'exécution
 
-1. **Startup.cs, ligne 20** : Vérifier que la configuration est chargée
-2. **ProductController.cs, ligne 15** : Vérifier l'injection des services
-3. **CartSummaryViewComponent.cs, ligne 12** : Vérifier l'injection du panier
-4. **ProductRepository.cs, ligne 43** : Vérifier le filtrage des produits (Stock > 0)
-5. **ProductService.cs, ligne 29** : Vérifier la conversion en `List<Product>`
+**Exemples dans notre projet :**
+- `ProductController.Index()` → entrer dans `GetAllProducts()`
+- `GetAllProducts()` → entrer dans le repository pour voir le filtrage
+- Investigation du bug de décrémentation du stock
 
-## Déploiement de notre application .NET en exécutable Windows
+#### **Shift + F11 - Pas à pas sortant**
+ **Utilisable:**
+- On est entré trop profondément dans le code
+- On veut revenir à la méthode appelante
+- On a fini d'analyser une méthode
+
+**Exemples dans notre projet :**
+- Sortir de `ProductRepository.GetAllProducts()` après avoir vu le filtre
+- Revenir à `ProductController` après l'analyse du service
+
+## 10. Déploiement de notre application .NET en exécutable Windows
 j'ai utilisé cette commande **dotnet publish -c Release -r win-x64 --self-contained true** 
 pour créer un exécutable Windows autonome donc après la publication le fichier se trouvera dans **bin\Release\netcoreapp2.0\win-x64\publish**
 
@@ -135,7 +158,28 @@ Une fois téléchargé, on fait un clic droit sur le fichier ensuite Partager
 Changee les permissions en : Toute personne disposant du lien
 Clique sur Copier le lien
 voici le lien: https://drive.google.com/file/d/1WvL3vj40BJOyowkl2FFNJCZBvILJNlDI/view?usp=sharing
-## 8. Optionnel :  
+## 11. Optionnel :  
 a) Ajoutez une langue d’affichage à l’interface, Wolof par exemple. Conservez les options de 
 culture du français. 
+L'application supporte désormais la langue **Wolof** en plus de l'anglais et du français.
+
+### Fonctionnalités
+- **Interface traduite** : Menus, panier, formulaires de commande et messages système.
+- **Formatage culturel** : Utilisation des conventions françaises pour les nombres et les dates (ex: `1 000 FCFA`), afin de respecter les habitudes locales au Sénégal.
+### Fichiers ajoutés
+9 fichiers de ressources ont été créés pour assurer la traduction complète :
+- [Resources/Controllers/OrderController.wo.resx]
+- [Resources/Models/ViewModels/LanguageViewModel.wo.resx]
+- [Resources/Models/ViewModels/Order.wo.resx]
+- [Resources/Views/Cart/Index.wo.resx]
+- [Resources/Views/Order/Completed.wo.resx]
+- [Resources/Views/Order/Index.wo.resx]
+- [Resources/Views/Product/Index.wo.resx]
+- [Resources/Views/Shared/Components/CartSummary/Default.wo.resx]
+- [Resources/Views/Shared/Components/LanguageSelector/Default.wo.resx]
+### Configuration
+La configuration a été effectuée dans :
+- **Startup.cs** : Ajout de la culture `wo` avec les options de formatage `fr-FR`.
+- **LanguageService.cs** : Gestion du cookie de langue pour le Wolof.
+- **LanguageSelector/Default.cshtml** : Ajout de l'option dans le menu déroulant.
 
