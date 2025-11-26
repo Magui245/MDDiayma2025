@@ -78,39 +78,36 @@ L'application a été ouverte dans le navigateur sur l'URL : `https://localhost:
 Avant l'affichage des produits sur la page d'accueil, les éléments suivants sont exécutés :
 
 ### 1. CartSummaryViewComponent
-- **Namespace :** `P2FixAnAppDotNetCode.Components`
-- **Classe :** `CartSummaryViewComponent`
-- **Méthode :** `Invoke()`
+- **Namespace :** P2FixAnAppDotNetCode.Components
+- **Classe :** CartSummaryViewComponent
+- **Méthode :** Invoke()
 
 ### 2. ProductController
-- **Namespace :** `P2FixAnAppDotNetCode.Controllers`
-- **Classe :** `ProductController`
-- **Méthode :** `Index()`
+- **Namespace :** P2FixAnAppDotNetCode.Controllers
+- **Classe :** ProductController
+- **Méthode :** Index()
 
 ### 3. OrderController
-- **Namespace :** `P2FixAnAppDotNetCode.Controllers`
-- **Classe :** `OrderController`
+- **Namespace :** P2FixAnAppDotNetCode.Controllers
+- **Classe :** OrderController
 - **Méthode :** [à préciser]
 
 ### 4. CartController
-- **Namespace :** `P2FixAnAppDotNetCode.Controllers`
-- **Classe :** `CartController`
+- **Namespace :** P2FixAnAppDotNetCode.Controllers
+- **Classe :** CartController
 - **Méthode :** [à préciser]
 
 ### 5. Startup
-- **Namespace :** `P2FixAnAppDotNetCode`
-- **Classe :** `Startup`
-- **Méthode :** `Startup()`
+- **Namespace :** P2FixAnAppDotNetCode
+- **Classe :** Startup
+- **Méthode :** Startup()
 
----
 
 ## 9. Modes de débogage utilisés
 
 - **Pas à pas principal (F10)** : Exécuter la ligne actuelle sans entrer dans les fonctions
 - **Pas à pas détaillé (F11)** : Entrée dans les méthodes
 - **Pas à pas sortant (Shift + F11)** : Retour à la méthode appelante
-
----
 
 ## 10. Points de vérification du débogage
 
@@ -138,4 +135,7 @@ Une fois téléchargé, on fait un clic droit sur le fichier ensuite Partager
 Changee les permissions en : Toute personne disposant du lien
 Clique sur Copier le lien
 voici le lien: https://drive.google.com/file/d/1WvL3vj40BJOyowkl2FFNJCZBvILJNlDI/view?usp=sharing
+## 8. Optionnel :  
+a) Ajoutez une langue d’affichage à l’interface, Wolof par exemple. Conservez les options de 
+culture du français. 
 
