@@ -180,6 +180,6 @@ L'application supporte désormais la langue **Wolof** en plus de l'anglais et du
 ### Configuration
 La configuration a été effectuée dans :
 - **Startup.cs** : Ajout de la culture `wo` avec les options de formatage `fr-FR`.
-- **LanguageService.cs** : Gestion du cookie de langue pour le Wolof.
+- **LanguageService.cs** : Prise en charge de la section du Wolof.
 - **LanguageSelector/Default.cshtml** : Ajout de l'option dans le menu déroulant.
 
