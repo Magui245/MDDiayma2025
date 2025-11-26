@@ -9,7 +9,7 @@ namespace P2FixAnAppDotNetCode.Controllers
     {
         private readonly IProductService _productService;
         private readonly ILanguageService _languageService;
-
+        // Débogage effectué 
         public ProductController(IProductService productService, ILanguageService languageService)
         {
             _productService = productService;
