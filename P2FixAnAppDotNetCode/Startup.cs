@@ -51,6 +51,8 @@ namespace P2FixAnAppDotNetCode
                     new CultureInfo("fr"),
                     new CultureInfo("wo")  // Wolof avec formatage français
                     {
+                        // Utilisation du formatage français pour les nombres et dates (ex: 1 000 FCFA)
+                        // pour maintenir la cohérence avec les habitudes locales
                         NumberFormat = new CultureInfo("fr-FR").NumberFormat,
                         DateTimeFormat = new CultureInfo("fr-FR").DateTimeFormat
                     }
