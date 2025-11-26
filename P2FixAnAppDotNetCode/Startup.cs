@@ -49,6 +49,11 @@ namespace P2FixAnAppDotNetCode
                     new CultureInfo("en"),
                     new CultureInfo("fr-FR"),
                     new CultureInfo("fr"),
+                    new CultureInfo("wo")  // Wolof avec formatage français
+                    {
+                        NumberFormat = new CultureInfo("fr-FR").NumberFormat,
+                        DateTimeFormat = new CultureInfo("fr-FR").DateTimeFormat
+                    }
                 };
 
                 opts.DefaultRequestCulture = new RequestCulture("en");
